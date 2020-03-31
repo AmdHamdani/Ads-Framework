@@ -1,47 +1,44 @@
-﻿using GoogleMobileAds.Api;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿//using GoogleMobileAds.Api;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.UI;
 
-public class AdmobAdBanner : MonoBehaviour
-{
-    public string adUnitID;
+//public class AdmobAdBanner : MonoBehaviour
+//{
+//    public string adUnitID;
 
-    private BannerView bannerView;
-    private Button showButton;
-    private Button closeButton;
+//    private BannerView bannerView;
+//    private Button showButton;
+//    private Button closeButton;
 
-    private void Start()
-    {
-        RequestBanner();
+//    private void Start()
+//    {
+//        Debug.Log("Request Banner Ad");
 
-        showButton = GameObject.Find("Show Banner").GetComponent<Button>();
-        closeButton = GameObject.Find("Close Banner").GetComponent<Button>();
+//        RequestBanner();
 
-        showButton.onClick.AddListener(() => bannerView.Show());
-        closeButton.onClick.AddListener(() => bannerView.Destroy());
-    }
+//        showButton = GameObject.Find("Show Banner").GetComponent<Button>();
+//        closeButton = GameObject.Find("Close Banner").GetComponent<Button>();
 
-    private void RequestBanner()
-    {
-        // Create a 320x50 banner at the top of the screen
-        bannerView = new BannerView(adUnitID, AdSize.Banner, AdPosition.Bottom);
-        bannerView.OnAdLoaded += (sender, args) => Debug.Log("Banner Ad Loaded");
-        bannerView.OnAdFailedToLoad += (sender, args) => Debug.Log("Banner Ad Failed to Load: " + args.Message);
-        bannerView.OnAdOpening += (sender, args) => Debug.Log("Banner Ad Opened");
-        bannerView.OnAdClosed += (sender, args) => Debug.Log("Banner Ad Closed");
-        bannerView.OnAdLeavingApplication += (sender, args) => Debug.Log("Banner Leaving App");
+//        showButton.onClick.AddListener(() => bannerView.Show());
+//        closeButton.onClick.AddListener(() => bannerView.Destroy());
+//    }
 
-        // Create an empty ad request
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the banner with the request
-        bannerView.LoadAd(request);
-        bannerView.Show();
-    }
+//    private void RequestBanner()
+//    {
+//        // Create a 320x50 banner at the top of the screen
+//        bannerView = new BannerView(adUnitID, AdSize.Banner, AdPosition.Bottom);
+//        bannerView.OnAdLoaded += (sender, args) => Debug.Log("Banner Ad Loaded");
+//        bannerView.OnAdFailedToLoad += (sender, args) => Debug.Log("Banner Ad Failed to Load: " + args.Message);
+//        bannerView.OnAdOpening += (sender, args) => Debug.Log("Banner Ad Opened");
+//        bannerView.OnAdClosed += (sender, args) => Debug.Log("Banner Ad Closed");
+//        bannerView.OnAdLeavingApplication += (sender, args) => Debug.Log("Banner Leaving App");
 
-    private void CloseBanner()
-    {
-        bannerView.Destroy();
-    }
-}
+//        // Create an empty ad request
+//        AdRequest request = new AdRequest.Builder().Build();
+//        // Load the banner with the request
+//        bannerView.LoadAd(request);
+//        bannerView.Show();
+//    }
+//}

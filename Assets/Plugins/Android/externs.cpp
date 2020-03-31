@@ -100,6 +100,9 @@ extern "C" {
 
     void *GADUCreateAdLoader(void **adLoaderClient,
                              const char *adUnitID,
+            // MOE:begin_strip
+                             int numberOfAds,
+            // MOE:end_strip
                              const char **templateIDs, int templateIDLength,
                              struct AdTypes *types, bool returnUrlsForImageAssets) {
         return NULL;
@@ -146,6 +149,14 @@ extern "C" {
     void GADUSetAdLoaderCallbacks(
             void *adLoader,
             void *customTemplateAdReceivedCallback,
+            // MOE:begin_strip
+            void *unifiedNativeAdCallback,
+            void *nativeAdDidRecordImpressionCallback,
+            void *nativeAdDidRecordClickCallback,
+            void *nativeAdWillPresentScreenCallback,
+            void *nativeAdDidDismissScreenCallback,
+            void *nativeAdWillLeaveApplicationCallback,
+            // MOE:end_strip
             void *adFailedCallback) {}
 
     void GADUHideBannerView(void *banner) {}
@@ -288,6 +299,73 @@ extern "C" {
     void GADUSetNativeCustomTemplateAdCallbacks(
             void *nativeCustomTemplateAd,
             void *adClickedCallback) {}
+
+    // MOE:begin_strip
+    #pragma mark - Unified Native Ad methods
+    void GADUSetNativeAdCallback(
+            void *nativeAd, void **nativeAdClient,
+            void *paidEventCallback) {}
+
+    double GADUUnifiedNativeAdStarRating(void *nativeAd) {
+        return 0.0;
+    }
+
+    const char *GADUUnifiedNativeAdHeadline(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdBody(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdCallToAction(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdPrice(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdAdvertiser(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdStore(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdIconURL(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdAdChoicesLogoURL(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdMainImagesURLs(void *nativeAd) {
+        return NULL;
+    }
+
+    const char *GADUUnifiedNativeAdAssetIDMappings(void *nativeAd) {
+        return NULL;
+    }
+
+    bool GADURecordPossibleImpressionForUnifiedNativeAd(void *nativeAd,
+                                                        const char *JSONAdSignalData) {
+        return false;
+    }
+
+    void GADUReportTouchEventOnUnifiedNativeAd(void *nativeAd,
+                                               const char *JSONAdSignalData) {}
+
+    void GADUPerformClickOnUnifiedNativeAd(void *nativeAd,
+                                           const char *JSONAdSignalData) {}
+
+    #pragma mark - Native Ad Adapter ClassName methods
+    const char *GADUMediationAdapterClassNameForUnifiedNativeAd(void *nativeAd) {
+        return NULL;
+    }
+    // MOE:end_strip
 
     #pragma mark - Other methods
     void GADURelease(void *ref) {}

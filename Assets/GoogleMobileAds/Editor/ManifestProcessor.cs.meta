@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: c9ee5d47594eb43a19e795c834fdc044
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+guid: 9269ae65dd0942329280c9483f9cdee9
+labels:
+- gvh
+- gvh_version-5.0.1.1
+timeCreated: 1480838400
+DefaultImporter:
+  userData:
+  assetBundleName:
+  assetBundleVariant:
