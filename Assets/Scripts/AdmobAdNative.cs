@@ -17,10 +17,14 @@ public class AdmobAdNative : MonoBehaviour
     private bool unifiedNativeAdLoaded;
     private UnifiedNativeAd nativeAd;
 
-    private void Start()
+    public void Awake()
     {
-        Debug.Log("Request Native Ad");
         adNativePanel.SetActive(false);
+    }
+
+    public void Init()
+    {
+        Debug.Log("Init & Request Native Ad");
 
         AdLoader adLoader = new AdLoader.Builder(adUnitId).ForUnifiedNativeAd().Build();
         adLoader.OnUnifiedNativeAdLoaded += (sender, args) =>
@@ -33,7 +37,7 @@ public class AdmobAdNative : MonoBehaviour
         adLoader.LoadAd(new AdRequest.Builder().Build());
     }
 
-    private void Update()
+    public void Update()
     {
         if (unifiedNativeAdLoaded)
         {
