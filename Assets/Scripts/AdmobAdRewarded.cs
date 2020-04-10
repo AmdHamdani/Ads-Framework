@@ -50,7 +50,6 @@ public class AdmobAdRewarded : MonoBehaviour
     {
         string type = e.Type;
         double amount = e.Amount;
-        Debug.Log("HandleRewardedAdRewarded event received for "
-                        + amount.ToString() + " " + type);
+        Debug.Log("HandleRewardedAdRewarded event received for " + amount.ToString() + " " + type);
     }
 }
